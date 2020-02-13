@@ -24,7 +24,7 @@
 				<td><textarea rows="5" cols="40" name="content"></textarea></td>
 			</tr>
 			<tr>
-				<td colpan=2>
+				<td colspan=2 align=center>
 				<input type="submit" value="글작성"> 
 				<input type="submit" value="취소">
 				</td>

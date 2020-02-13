@@ -49,10 +49,41 @@ public class BoardController {
 	@RequestMapping("boardcontent.do")
 	public String boardcontent(int no, Model model) {
 		
-		service.readcount(no);		// 조회수 증가
-		Board board = service.getBoard(no);
-		System.out.println("board:"+board);
+		service.readcount(no);							// 조회수 증가
+		Board board = service.getBoard(no);		// 상세 정보
+		System.out.println("board:"+board);		
+		model.addAttribute("board", board);		// 필요한내용을 보드에 저장
+		
 		return "board/boardcontent";
 	}
-
+	// 수정폼
+	@RequestMapping("boardupdateform.do")
+	public String boardupdateform(int no, Model model) {
+		
+		Board board = service.getBoard(no);		// 한 사람의 상세정보를 구함
+		model.addAttribute("board", board);
+		
+		return "board/boardupdateform";
+	}
+	// 수정
+	@RequestMapping("boardupdate.do")
+	public String boardupdate(Board b, Model model) {
+		
+		int result = service.update(b);
+		Board board = service.getBoard(b.getNo());		// 한 사람의 상세정보를 구함
+		
+		model.addAttribute("board", board);
+		model.addAttribute("result", result);
+		
+		return "board/updateresult";
+	}
+	// 삭제
+	@RequestMapping("boarddelete.do")
+	public String boarddelete(int no, Model model) {
+		
+		int result = service.delete(no);
+		model.addAttribute("result", result);
+		
+		return "board/deleteresult";
+	}
 }

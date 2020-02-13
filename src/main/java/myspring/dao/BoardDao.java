@@ -25,5 +25,11 @@ public class BoardDao {
 	public Board getBoard(int no) {
 		return session.selectOne("content",no);
 	}
+	public int update(Board board) {
+		return session.update("update", board);
+	}
+	public int delete(int no) {
+		return session.delete("delete",no);
+	}
 	
 }

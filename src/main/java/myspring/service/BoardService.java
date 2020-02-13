@@ -26,5 +26,11 @@ public class BoardService {
 	public Board getBoard(int no) {
 		return dao.getBoard(no);
 	}
+	public int update(Board board) {
+		return dao.update(board);
+	}
+	public int delete(int no) {
+		return dao.delete(no);
+	}
 	
 }

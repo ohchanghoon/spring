@@ -9,6 +9,8 @@
 <title>글목록</title>
 </head>
 <body>
+
+<a href="boardform.do">글작성</a>
 	<table border=1 align=center width=600>
 		<caption>글목록</caption>
 		<tr>
